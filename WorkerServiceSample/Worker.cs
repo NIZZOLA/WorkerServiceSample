@@ -26,7 +26,7 @@ namespace WorkerServiceSample
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var secondsToWaitFirstTime = CalculateFirstTimeStart(_config.WorkerStartTime);
+            var secondsToWaitFirstTime = HelpersLibrary.CalculateFirstTimeStart(_config.WorkerStartTime);
             _logger.LogInformation("Next execution at " + secondsToWaitFirstTime + " seconds");
             // wait till midnight
             await Task.Delay(TimeSpan.FromSeconds(secondsToWaitFirstTime), stoppingToken);
@@ -39,17 +39,6 @@ namespace WorkerServiceSample
                 // wait 24 hours
                 await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
             }
-        }
-        private int CalculateFirstTimeStart(string firstExecution)
-        {
-            var splitTime = firstExecution.Split(':');
-            // calculate seconds till midnight
-            var now = DateTime.Now;
-            var hours = Convert.ToInt32(splitTime[0]) - now.Hour;
-            var minutes = Convert.ToInt32(splitTime[1]) - now.Minute;
-            var seconds = Convert.ToInt32(splitTime[2]) - now.Second;
-            var secondsTillStart = hours * 3600 + minutes * 60 + seconds;
-            return secondsTillStart;
         }
     }
 }
