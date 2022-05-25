@@ -5,8 +5,8 @@ https://marcionizzola.medium.com/worker-services-no-net-o-que-s%C3%A3o-para-que-
 
 A explicação para seu funcionamento está publicada no blog 
 
-Parte 1 - criação
+Parte 1 - criação (branch parte1)
 https://marcionizzola.medium.com/construindo-servi%C3%A7os-que-executam-em-horas-espec%C3%ADficas-com-worker-services-no-net-c444261576a3
 
-Parte 2 - implementação de logs
+Parte 2 - implementação de logs  (branch implantando_serilog)
 https://marcionizzola.medium.com/colocando-log-em-um-worker-service-net-6-f06c21a7dde5
